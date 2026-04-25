@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorry Faizan meri jan 😢❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #ff9ff3 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3);
+            max-width: 400px;
+            animation: slideIn 0.8s ease-out;
+            border: 2px solid #ff6b6b;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .heart {
+            font-size: 80px;
+            animation: heartbeat 1.5s infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+
+        h1 {
+            color: #e74c3c;
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #e74c3c;
+            font-size: 20px;
+            margin: 10px 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .sorry-text {
+            color: #7f8c8d;
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .name {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 24px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.6);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Photos Page Styles */
+        .photos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .photo-frame {
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+            transition: all 0.3s ease;
+            border: 3px solid #ff6b6b;
+            animation: photoFloat 3s ease-in-out infinite;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 30px rgba(255, 107, 107, 0.6);
+        }
+
+        @keyframes photoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .falling-heart {
+            position: absolute;
+            font-size: 24px;
+            color: #ff4757;
+            animation: fallHearts linear infinite;
+            text-shadow: 0 0 10px rgba(255, 71, 87, 0.8);
+        }
+
+        @keyframes fallHearts {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(50vh) rotate(180deg) scale(1.2);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg) scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 30px;
+            color: #ff6b6b;
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% { 
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-bg" id="heartsBg"></div>
+    
+    <!-- Floating hearts around main container -->
+    <div class="floating-heart" style="top: 20%; left: 10%; animation-delay: 0s;">❤️</div>
+    <div class="floating-heart" style="top: 30%; right: 15%; animation-delay: 2s;">❤️</div>
+    <div class="floating-heart" style="bottom: 25%; left: 20%; animation-delay: 4s;">❤️</div>
+    <div class="floating-heart" style="top: 60%; right: 25%; animation-delay: 1s;">❤️</div>
+    
+    <!-- PAGE 1 -->
+    <div class="container" id="page1">
+        <div class="heart">❤️</div>
+        <h1>Faizan meri jan meri munni😢</h1>
+        <p class="sorry-text">
+            I'm really sorry for hurting you. 
+            <br><br>
+            <strong>Please forgive me! 🙏</strong>
+        </p>
+        <button class="btn" onclick="nextPage()">See more❤️</button>
+    </div>
+
+    <!-- PAGE 2 (Promises) -->
+    <div class="container hidden" id="page2">
+        <div class="heart">💙</div>
+        <h1>Munni jan</h1>
+        <h2>I promise to be more careful with my actions</h2>
+        <h2>I promise to never intentionally hurt you again</h2>
+        <h2>Feels so empty and incomplete.</h2>
+        <h2>Losing your smile because of me hurts the most… I'm really sorry</h2>
+        <br>
+        <span class="name">Munni yrrr, please forgive me!</span>
+        <br><br>
+        <button class="btn" onclick="nextPage()">Click next… 📸 PICTURES!</button>
+    </div>
+<!-- PHOTOS SECTION -->
+<!-- PAGE 3 (PHOTOS) - MOBILE PERFECT SINGLE PAGE -->
+<div class="container hidden" id="page3" style="width: 100vw; max-width: 100vw; height: 100vh; padding: 20px; margin: 0; overflow-y: auto; background: linear-gradient(180deg, rgba(255,107,107,0.1) 0%, rgba(255,255,255,0.95) 50%);">
+    
+    <!-- HEADER -->
+    <div style="text-align: center; padding: 20px 0;">
+        
+     
+        <p style="font-size: 18px; color: #7f8c8d;">Remember these moments together?❤️</p>
+    </div>
+    
+    <!-- PHOTOS SECTION - FULL SCREEN SCROLL -->
+    <div style="padding: 0 10px;">
+        
+        <!-- PHOTO 1 -->
+        <div style="
+            width: 100%; height: 280px; 
+            border-radius: 25px; overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 40px rgba(255,100,100,0.6);
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+        ">
+            <img src="IMG_1.jpeg" alt="Our moment 1" style="
+                width: 100%; height: 100%; 
+                object-fit: cover; display: block;
+            " loading="lazy">
+        </div>
+
+        <!-- PHOTO 2 -->
+        <div style="
+            width: 100%; height: 280px; 
+            border-radius: 25px; overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 40px rgba(255,100,100,0.6);
+            background: linear-gradient(45deg, #ff8e8e, #ff6b6b);
+        ">
+            <img src="IMG_2.jpeg" alt="Our moment 2" style="
+                width: 100%; height: 100%; 
+                object-fit: cover; display: block;
+            " loading="lazy">
+        </div>
+
+        
+    </div>
+    
+    <!-- FOOTER -->
+    <div style="text-align: center; padding: 20px 0;">
+        <p style="font-size: 20px; color: #e74c3c; font-weight: bold; margin-bottom: 25px;">
+            I cherish every moment with you! 🥰💕
+        </p>
+        <button class="btn" onclick="nextPage()" style="
+            padding: 20px 50px; font-size: 20px; 
+            background: linear-gradient(45deg, #00b894, #00cec9);
+            width: 90%; max-width: 350px; border-radius: 50px;
+        ">
+            Let’s Fix This Together… 💙
+        </button>
+    </div>
+    
+</div>
+
+</div>
+    <!-- PAGE 4 (Final Decision) -->
+    <div class="container hidden" id="page4">
+        <div class="heart">❤️</div>
+        <h1>Now tell me! 🤔</h1>
+        <p class="sorry-text">
+            Have you <strong>FORGIVEN</strong> me or not?
+            <br><br>
+            Click the button and let me know! 🥺
+        </p>
+        <button class="btn" style="background: linear-gradient(45deg, #00b894, #00cec9);" onclick="forgiven()">Yes, I forgive you! 😍</button>
+        <br><br>
+        <button class="btn" style="background: linear-gradient(45deg, #e17055, #d63031);" onclick="notForgiven()">No, not yet! 😣</button>
+    </div>
+
+    <!-- FORGIVEN PAGE -->
+    <div class="container hidden" id="forgivenPage">
+        <div class="heart">💕💕💕</div>
+        <h1>Yayyy! 😍😍</h1>
+        <p class="sorry-text">
+            Thank you <span class="name">Faizan meri jaan</span>! 
+            <br><br>
+            I love you so much! 💖✨
+            <br><br>
+            Now smile for me! 😊
+        </p>
+        <button class="btn" onclick="restart()">Restart ❤️</button>
+    </div>
+
+    <!-- NOT FORGIVEN PAGE -->
+    <div class="container hidden" id="notForgivenPage">
+        <div class="heart">😢💔</div>
+        <h1>Okay... 😔</h1>
+        <p class="sorry-text">
+            That's okay <span class="name">Faizan meri jaan</span>, 
+            <br><br>
+            I'll try even harder to make it up to you! 
+            <br><br>
+            Love you forever! 🥺🙏
+        </p>
+        <button class="btn" onclick="restart()">Restart</button>
+    </div>
+
+    <script>
+        let currentPage = 1;
+
+        function nextPage() {
+            document.getElementById('page' + currentPage).classList.add('hidden');
+            currentPage++;
+            document.getElementById('page' + currentPage).classList.remove('hidden');
+        }
+
+        function forgiven() {
+            document.getElementById('page4').classList.add('hidden');
+            document.getElementById('forgivenPage').classList.remove('hidden');
+        }
+
+        function notForgiven() {
+            document.getElementById('page4').classList.add('hidden');
+            document.getElementById('notForgivenPage').classList.remove('hidden');
+        }
+
+        function restart() {
+            currentPage = 1;
+            document.querySelectorAll('.container').forEach(container => {
+                container.classList.add('hidden');
+            });
+            document.getElementById('page1').classList.remove('hidden');
+        }
+
+        // RED HEART FALLING EFFECT 💖
+        function createFallingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'falling-heart';
+            heart.innerHTML = ['❤️', '💖', '💕', '💗', '💓'][Math.floor(Math.random() * 5)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 4 + 3) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            document.getElementById('heartsBg').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        // Create hearts continuously
+        setInterval(createFallingHeart, 200);
+        
+        // Initial hearts
+        for(let i = 0; i < 5; i++) {
+            setTimeout(createFallingHeart, i * 500);
+        }
+    </script>
+</body>
+</html>
